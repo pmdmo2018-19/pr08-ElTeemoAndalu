@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import es.iessaladillo.pedrojoya.pr08.ui.detail.DetailFragment;
 import es.iessaladillo.pedrojoya.pr08.ui.main.MainFragment;
+import es.iessaladillo.pedrojoya.pr08.ui.settings.SettingsFragment;
 import utils.FragmentUtils;
 
 public class MainActivity extends AppCompatActivity {
@@ -47,5 +48,17 @@ public class MainActivity extends AppCompatActivity {
         if(getSupportFragmentManager().findFragmentByTag(DetailFragment.class.getSimpleName()) == null){
             FragmentUtils.replaceFragmentAddToBackstack(getSupportFragmentManager(),R.id.container,DetailFragment.newInstance(),DetailFragment.class.getSimpleName(),DetailFragment.class.getSimpleName(),FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
         }
+    }
+
+    private void replaceWithSettingsFragment() {
+        if(getSupportFragmentManager().findFragmentByTag(DetailFragment.class.getSimpleName()) == null){
+            FragmentUtils.replaceFragmentAddToBackstack(getSupportFragmentManager(),R.id.container,SettingsFragment.newInstance(),SettingsFragment.class.getSimpleName(),SettingsFragment.class.getSimpleName(),FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
+        }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.preference.ListPreference
+        android:key="PREF_LIST"
+        app:useSimpleSummaryProvider="true"
+        android:title="@string/loremType_Settings_title"
+        android:summary="ListPreference summary"
+        android:entries="@array/listEntries"
+        android:entryValues="@array/listEntries" />
+
+</PreferenceScreen>

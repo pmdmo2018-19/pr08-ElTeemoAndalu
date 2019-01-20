@@ -59,12 +59,12 @@ public class MainFragment extends Fragment {
     private void setupViews() {
         fabMain = ActivityCompat.requireViewById(requireActivity(),R.id.fabMainFrag);
         toolbar = ActivityCompat.requireViewById(requireActivity(),R.id.toolBarMainFrag);
-
         setupListeners();
     }
 
     private void setupListeners() {
         fabMain.setOnClickListener(v -> vmMA.goToDetailFragment());
+        
     }
 
     private void setupToolbar() {
