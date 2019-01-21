@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.preference.ListPreference
-        android:key="PREF_LIST"
+        android:key="@string/listPreferenceKey"
         app:useSimpleSummaryProvider="true"
         android:title="@string/loremType_Settings_title"
         android:defaultValue="@string/prefLoremType"
+        android:icon="@drawable/ic_wrap_text_black_24dp"
         android:summary="ListPreference summary"
         android:entries="@array/listEntries"
         android:entryValues="@array/listEntries" />

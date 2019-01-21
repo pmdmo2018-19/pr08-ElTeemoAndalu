@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
             FragmentUtils.replaceFragment(getSupportFragmentManager(),R.id.frameLayoutMainAtivity,MainFragment.newInstance(),MainFragment.class.getSimpleName());
         }
 
-
         observeFragmentLaunch();
     }
 
