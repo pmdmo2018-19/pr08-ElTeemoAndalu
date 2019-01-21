@@ -13,14 +13,14 @@ import es.iessaladillo.pedrojoya.pr08.R;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
 
-    
+
     public static SettingsFragment newInstance() {
         return new SettingsFragment();
     }
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        setPreferencesFromResource(R.xml.preferences,rootKey);
+        setPreferencesFromResource(R.xml.preferences, rootKey);
         setHasOptionsMenu(true);
 
     }
@@ -34,9 +34,9 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     }
 
     private void setupToolbar() {
-        Toolbar toolbar = ActivityCompat.requireViewById(requireActivity(),R.id.settingsToolbar);
+        Toolbar toolbar = ActivityCompat.requireViewById(requireActivity(), R.id.settingsToolbar);
         toolbar.setTitle(getString(R.string.mainFrag_title));
-        ((AppCompatActivity)requireActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity) requireActivity()).setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
         toolbar.setNavigationOnClickListener(v -> requireActivity().onBackPressed());
     }

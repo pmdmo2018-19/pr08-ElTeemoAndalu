@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         vm = ViewModelProviders.of(this).get(MainActivityViewModel.class);
 
         if (savedInstanceState == null) {
-            FragmentUtils.replaceFragment(getSupportFragmentManager(),R.id.frameLayoutMainAtivity,MainFragment.newInstance(),MainFragment.class.getSimpleName());
+            FragmentUtils.replaceFragment(getSupportFragmentManager(), R.id.frameLayoutMainAtivity, MainFragment.newInstance(), MainFragment.class.getSimpleName());
         }
 
         observeFragmentLaunch();
@@ -36,30 +36,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void observeSettingsLaunch() {
-        vm.getLaunchSettingsFragment().observe(this,settingsSwitch -> {
-            if(settingsSwitch){
+        vm.getLaunchSettingsFragment().observe(this, settingsSwitch -> {
+            if (settingsSwitch) {
                 replaceWithSettingsFragment();
             }
         });
     }
 
     private void observeDetailLaunch() {
-        vm.getLaunchDetailFragment().observe(this,detailSwitch -> {
-            if(detailSwitch){
+        vm.getLaunchDetailFragment().observe(this, detailSwitch -> {
+            if (detailSwitch) {
                 replaceWithDetailFragment();
             }
         });
     }
 
     private void replaceWithDetailFragment() {
-        if(getSupportFragmentManager().findFragmentByTag(DetailFragment.class.getSimpleName()) == null){
-            FragmentUtils.replaceFragmentAddToBackstack(getSupportFragmentManager(),R.id.frameLayoutMainAtivity,DetailFragment.newInstance(),DetailFragment.class.getSimpleName(),DetailFragment.class.getSimpleName(),FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
+        if (getSupportFragmentManager().findFragmentByTag(DetailFragment.class.getSimpleName()) == null) {
+            FragmentUtils.replaceFragmentAddToBackstack(getSupportFragmentManager(), R.id.frameLayoutMainAtivity, DetailFragment.newInstance(), DetailFragment.class.getSimpleName(), DetailFragment.class.getSimpleName(), FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
         }
     }
 
     private void replaceWithSettingsFragment() {
-        if(getSupportFragmentManager().findFragmentByTag(DetailFragment.class.getSimpleName()) == null){
-            FragmentUtils.replaceFragmentAddToBackstack(getSupportFragmentManager(),R.id.frameLayoutMainAtivity,SettingsFragment.newInstance(),SettingsFragment.class.getSimpleName(),SettingsFragment.class.getSimpleName(),FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
+        if (getSupportFragmentManager().findFragmentByTag(DetailFragment.class.getSimpleName()) == null) {
+            FragmentUtils.replaceFragmentAddToBackstack(getSupportFragmentManager(), R.id.frameLayoutMainAtivity, SettingsFragment.newInstance(), SettingsFragment.class.getSimpleName(), SettingsFragment.class.getSimpleName(), FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
         }
     }
 

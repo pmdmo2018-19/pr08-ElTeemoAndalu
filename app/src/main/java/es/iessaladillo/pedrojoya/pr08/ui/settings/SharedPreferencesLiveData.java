@@ -5,7 +5,7 @@ import android.text.TextUtils;
 
 import androidx.lifecycle.LiveData;
 
-public abstract class SharedPreferencesLiveData <T> extends LiveData<T> {
+public abstract class SharedPreferencesLiveData<T> extends LiveData<T> {
 
     protected final SharedPreferences sharedPreferences;
     private final String key;
@@ -13,12 +13,10 @@ public abstract class SharedPreferencesLiveData <T> extends LiveData<T> {
 
     private SharedPreferences.OnSharedPreferenceChangeListener
             onSharedPreferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
-                @Override
-                public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-                    if (TextUtils.equals(key, SharedPreferencesLiveData.this.key)) {
-                    }
-                }
-            };
+        @Override
+        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        }
+    };
 
     SharedPreferencesLiveData(SharedPreferences sharedPreferences, String key, T defaultValue) {
         this.sharedPreferences = sharedPreferences;

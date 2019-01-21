@@ -45,14 +45,14 @@ public class DetailFragment extends Fragment {
 
     private void setupListeners() {
         FloatingActionButton fab = ActivityCompat.requireViewById(requireActivity(), R.id.fabDetailfrag);
-        fab.setOnClickListener(v -> ToastUtils.toast(getContext(),"Details have been saved"));
+        fab.setOnClickListener(v -> ToastUtils.toast(getContext(), "Details have been saved"));
     }
 
 
     private void setupToolbar() {
-        Toolbar toolbar = ActivityCompat.requireViewById(requireActivity(),R.id.toolBarDetailFrag);
+        Toolbar toolbar = ActivityCompat.requireViewById(requireActivity(), R.id.toolBarDetailFrag);
         toolbar.setTitle(getString(R.string.mainFrag_title));
-        ((AppCompatActivity)requireActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity) requireActivity()).setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
         toolbar.setNavigationOnClickListener(v -> requireActivity().onBackPressed());
     }

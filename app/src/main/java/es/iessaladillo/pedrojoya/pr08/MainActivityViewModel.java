@@ -18,15 +18,14 @@ public class MainActivityViewModel extends AndroidViewModel {
     private final LiveData<String> loremType;
 
 
-
-    MainActivityViewModel(@NonNull Application application){
+    MainActivityViewModel(@NonNull Application application) {
         super(application);
         launchDetailFragment.setValue(false);
         launchSettingsFragment.setValue(false);
         loremType = new SharedPreferencesStringLiveData(
-                        PreferenceManager.getDefaultSharedPreferences(application),
-                        application.getString(R.string.listPreferenceKey),
-                        application.getString(R.string.prefLoremType));
+                PreferenceManager.getDefaultSharedPreferences(application),
+                application.getString(R.string.listPreferenceKey),
+                application.getString(R.string.prefLoremType));
     }
 
     public LiveData<Boolean> getLaunchDetailFragment() {

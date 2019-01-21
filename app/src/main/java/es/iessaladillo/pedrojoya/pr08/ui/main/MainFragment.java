@@ -27,7 +27,7 @@ import es.iessaladillo.pedrojoya.pr08.R;
 public class MainFragment extends Fragment {
 
     private Toolbar toolbar;
-    FloatingActionButton fabMain;
+    private FloatingActionButton fabMain;
     private MainActivityViewModel vmMA;
     private TextView textLorem;
 
@@ -53,13 +53,11 @@ public class MainFragment extends Fragment {
     }
 
     private void observeLoremType() {
-        vmMA.getLoremType().observe(this,loremType -> {
-            changeLorems(loremType);
-        });
+        vmMA.getLoremType().observe(this, this::changeLorems);
     }
 
     private void changeLorems(String loremType) {
-        switch (loremType){
+        switch (loremType) {
             case "Latin":
                 textLorem.setText(R.string.main_latin_ipsum);
                 break;
@@ -71,30 +69,30 @@ public class MainFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.main_menu,menu);
+        inflater.inflate(R.menu.main_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     private void setupViews() {
-        fabMain = ActivityCompat.requireViewById(requireActivity(),R.id.fabMainFrag);
-        toolbar = ActivityCompat.requireViewById(requireActivity(),R.id.toolBarMainFrag);
-        textLorem = ActivityCompat.requireViewById(requireActivity(),R.id.lblTextLorem);
+        fabMain = ActivityCompat.requireViewById(requireActivity(), R.id.fabMainFrag);
+        toolbar = ActivityCompat.requireViewById(requireActivity(), R.id.toolBarMainFrag);
+        textLorem = ActivityCompat.requireViewById(requireActivity(), R.id.lblTextLorem);
         setupListeners();
     }
 
     private void setupListeners() {
         fabMain.setOnClickListener(v -> vmMA.setLaunchDetailFragment(true));
-        
+
     }
 
     private void setupToolbar() {
         toolbar.setTitle(getString(R.string.title_MainFrag));
-        ((AppCompatActivity)requireActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity) requireActivity()).setSupportActionBar(toolbar);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.mnuItem_Settings){
+        if (item.getItemId() == R.id.mnuItem_Settings) {
             vmMA.setLaunchSettingsFragment(true);
         }
         return super.onOptionsItemSelected(item);
