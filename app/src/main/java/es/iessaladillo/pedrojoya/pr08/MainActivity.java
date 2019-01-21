@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         vm = ViewModelProviders.of(this).get(MainActivityViewModel.class);
 
         if (savedInstanceState == null) {
-            FragmentUtils.replaceFragment(getSupportFragmentManager(),R.id.container,MainFragment.newInstance(),MainFragment.class.getSimpleName());
+            FragmentUtils.replaceFragment(getSupportFragmentManager(),R.id.frameLayoutMainAtivity,MainFragment.newInstance(),MainFragment.class.getSimpleName());
         }
 
 
@@ -54,13 +54,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void replaceWithDetailFragment() {
         if(getSupportFragmentManager().findFragmentByTag(DetailFragment.class.getSimpleName()) == null){
-            FragmentUtils.replaceFragmentAddToBackstack(getSupportFragmentManager(),R.id.container,DetailFragment.newInstance(),DetailFragment.class.getSimpleName(),DetailFragment.class.getSimpleName(),FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
+            FragmentUtils.replaceFragmentAddToBackstack(getSupportFragmentManager(),R.id.frameLayoutMainAtivity,DetailFragment.newInstance(),DetailFragment.class.getSimpleName(),DetailFragment.class.getSimpleName(),FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
         }
     }
 
     private void replaceWithSettingsFragment() {
         if(getSupportFragmentManager().findFragmentByTag(DetailFragment.class.getSimpleName()) == null){
-            FragmentUtils.replaceFragmentAddToBackstack(getSupportFragmentManager(),R.id.container,SettingsFragment.newInstance(),SettingsFragment.class.getSimpleName(),SettingsFragment.class.getSimpleName(),FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
+            FragmentUtils.replaceFragmentAddToBackstack(getSupportFragmentManager(),R.id.frameLayoutMainAtivity,SettingsFragment.newInstance(),SettingsFragment.class.getSimpleName(),SettingsFragment.class.getSimpleName(),FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
         }
     }
 
