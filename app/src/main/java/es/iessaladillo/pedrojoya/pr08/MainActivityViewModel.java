@@ -8,12 +8,13 @@ public class MainActivityViewModel extends ViewModel {
 
     MutableLiveData<Boolean> launchDetailFragment = new MutableLiveData<>();
 
+    MutableLiveData<Boolean> launchSettingsFragment = new MutableLiveData<>();
+
+
+
     MainActivityViewModel(){
         launchDetailFragment.setValue(false);
-    }
-
-    public void goToDetailFragment(){
-        launchDetailFragment.setValue(true);
+        launchSettingsFragment.setValue(false);
     }
 
     public LiveData<Boolean> getLaunchDetailFragment() {
@@ -22,5 +23,13 @@ public class MainActivityViewModel extends ViewModel {
 
     public void setLaunchDetailFragment(boolean bool) {
         launchDetailFragment.setValue(bool);
+    }
+
+    public LiveData<Boolean> getLaunchSettingsFragment() {
+        return launchSettingsFragment;
+    }
+
+    public void setLaunchSettingsFragment(boolean bool) {
+        launchSettingsFragment.setValue(bool);
     }
 }

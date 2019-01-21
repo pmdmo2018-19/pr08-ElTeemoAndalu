@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -24,7 +25,6 @@ import es.iessaladillo.pedrojoya.pr08.R;
 
 public class MainFragment extends Fragment {
 
-    private MainViewModel vm;
     private Toolbar toolbar;
     FloatingActionButton fabMain;
     private MainActivityViewModel vmMA;
@@ -43,7 +43,6 @@ public class MainFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        vm = ViewModelProviders.of(this).get(MainViewModel.class);
         vmMA = ViewModelProviders.of(requireActivity()).get(MainActivityViewModel.class);
         setHasOptionsMenu(true);
         setupViews();
@@ -63,7 +62,7 @@ public class MainFragment extends Fragment {
     }
 
     private void setupListeners() {
-        fabMain.setOnClickListener(v -> vmMA.goToDetailFragment());
+        fabMain.setOnClickListener(v -> vmMA.setLaunchDetailFragment(true));
         
     }
 
@@ -72,6 +71,11 @@ public class MainFragment extends Fragment {
         ((AppCompatActivity)requireActivity()).setSupportActionBar(toolbar);
     }
 
-
-
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.mnuItem_Settings){
+            vmMA.setLaunchSettingsFragment(true);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

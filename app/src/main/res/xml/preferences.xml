@@ -6,6 +6,7 @@
         android:key="PREF_LIST"
         app:useSimpleSummaryProvider="true"
         android:title="@string/loremType_Settings_title"
+        android:defaultValue="@string/prefLoremType"
         android:summary="ListPreference summary"
         android:entries="@array/listEntries"
         android:entryValues="@array/listEntries" />

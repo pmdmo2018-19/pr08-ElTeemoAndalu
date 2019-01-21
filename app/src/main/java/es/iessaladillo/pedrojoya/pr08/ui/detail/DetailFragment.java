@@ -1,5 +1,8 @@
 package es.iessaladillo.pedrojoya.pr08.ui.detail;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
@@ -10,12 +13,13 @@ import androidx.fragment.app.Fragment;
 import es.iessaladillo.pedrojoya.pr08.R;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 public class DetailFragment extends Fragment {
 
-    private DetailFragmentViewModel mViewModel;
 
     public static DetailFragment newInstance() {
         return new DetailFragment();
@@ -30,8 +34,15 @@ public class DetailFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(DetailFragmentViewModel.class);
-        // TODO: Use the ViewModel
+        setHasOptionsMenu(true);
+        setupToolbar();
+    }
+
+
+    private void setupToolbar() {
+        Toolbar toolbar = ActivityCompat.requireViewById(requireActivity(),R.id.toolBarDetailFrag);
+        toolbar.setTitle(getString(R.string.mainFrag_title));
+        ((AppCompatActivity)requireActivity()).setSupportActionBar(toolbar);
     }
 
 }
