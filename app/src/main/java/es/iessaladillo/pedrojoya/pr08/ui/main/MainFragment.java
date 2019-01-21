@@ -17,6 +17,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -28,6 +29,7 @@ public class MainFragment extends Fragment {
     private Toolbar toolbar;
     FloatingActionButton fabMain;
     private MainActivityViewModel vmMA;
+    private TextView textLorem;
 
     public static MainFragment newInstance() {
         return new MainFragment();
@@ -47,6 +49,24 @@ public class MainFragment extends Fragment {
         setHasOptionsMenu(true);
         setupViews();
         setupToolbar();
+        observeLoremType();
+    }
+
+    private void observeLoremType() {
+        vmMA.getLoremType().observe(this,loremType -> {
+            changeLorems(loremType);
+        });
+    }
+
+    private void changeLorems(String loremType) {
+        switch (loremType){
+            case "Latin":
+                textLorem.setText(R.string.main_latin_ipsum);
+                break;
+            case "Chiquito":
+                textLorem.setText(R.string.main_chiquito_ipsum);
+                break;
+        }
     }
 
     @Override
@@ -58,6 +78,7 @@ public class MainFragment extends Fragment {
     private void setupViews() {
         fabMain = ActivityCompat.requireViewById(requireActivity(),R.id.fabMainFrag);
         toolbar = ActivityCompat.requireViewById(requireActivity(),R.id.toolBarMainFrag);
+        textLorem = ActivityCompat.requireViewById(requireActivity(),R.id.lblTextLorem);
         setupListeners();
     }
 

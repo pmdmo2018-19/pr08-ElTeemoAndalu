@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 import androidx.preference.PreferenceManager;
 import es.iessaladillo.pedrojoya.pr08.ui.settings.SharedPreferencesStringLiveData;
 

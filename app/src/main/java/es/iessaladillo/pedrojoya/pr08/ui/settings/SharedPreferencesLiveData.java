@@ -16,8 +16,6 @@ public abstract class SharedPreferencesLiveData <T> extends LiveData<T> {
                 @Override
                 public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
                     if (TextUtils.equals(key, SharedPreferencesLiveData.this.key)) {
-//                        if ()
-//                            setValue(getValueFromPreferences(key, defaultValue));
                     }
                 }
             };
